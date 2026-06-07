@@ -1,0 +1,82 @@
+/* Reset */
+* {box-sizing: border-box; margin: 0; padding: 0}
+
+html,body {height: 100%;}
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(135deg,#0f172a 0%, #0ea5e9 100%);
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.site-header {text-align: center; color: #fff; margin-bottom: 18px}
+.site-header h1 {font-weight: 600; letter-spacing: -0.5px}
+.site-header .tagline {opacity: 0.9; margin-top: 6px}
+
+.app {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.search-box {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom: 18px;
+}
+
+.search-box input[type="search"] {
+  flex:1;
+  padding:12px 14px;
+  border-radius:10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-box button {
+  background: linear-gradient(180deg,#06b6d4,#0891b2);
+  color: #fff;
+  padding:10px 16px;
+  border-radius:10px;
+  border: none;
+  cursor: pointer;
+  font-weight:600;
+}
+
+.search-box button:active {transform: translateY(1px)}
+
+.weather-box {min-height:120px}
+
+.card {display:flex; gap:16px; align-items:center}
+.card-left img {width:96px; height:96px}
+.card-right h2 {margin-bottom:6px; font-size:20px}
+.temp {font-size:32px; font-weight:700; margin:4px 0}
+.desc {text-transform:capitalize; color:#064e3b}
+.meta {font-size:14px; color:#334155}
+
+.loader {
+  width:48px; height:48px; margin:16px auto; border-radius:50%;
+  border:5px solid rgba(255,255,255,0.12); border-top-color:#fff; animation:spin 1s linear infinite;
+}
+@keyframes spin {to{transform:rotate(360deg)}}
+
+.error {color:#fee2e2; background:#b91c1c66; padding:8px 12px; border-radius:8px; display:inline-block}
+
+.site-footer{margin-top:12px; color:rgba(255,255,255,0.8); font-size:13px}
+
+@media (max-width:520px){
+  .card {flex-direction:row}
+  .card-left img{width:72px;height:72px}
+  .temp{font-size:28px}
+}
