@@ -1,1 +1,1 @@
-# Syntecxhub-weather-app
+
