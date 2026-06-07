@@ -1,185 +1,205 @@
-# 🌦️ SyntecxHub Weather
+<div align="center">
 
-A small, responsive weather application that displays real-time weather conditions using the OpenWeatherMap API. The project includes a secure Node.js/Express proxy server to keep your API key hidden from the client side.
+# 🌦️ Atlas Weather
 
----
+**A sleek live weather dashboard for city search, local conditions, and multi-day forecasts.**
 
-## 🚀 Features
+![HTML5](https://img.shields.io/badge/HTML5-0A0A0A?style=for-the-badge&logo=html5&logoColor=E34F26)
+![CSS3](https://img.shields.io/badge/CSS3-0A0A0A?style=for-the-badge&logo=css3&logoColor=1572B6)
+![JavaScript](https://img.shields.io/badge/JavaScript-0A0A0A?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![OpenWeather](https://img.shields.io/badge/OpenWeather-0A0A0A?style=for-the-badge&logo=openweathermap&logoColor=FFFFFF)
+![Font%20Awesome](https://img.shields.io/badge/Font%20Awesome-0A0A0A?style=for-the-badge&logo=fontawesome&logoColor=339AF0)
 
-* Modern and responsive user interface
-* Real-time weather data from OpenWeatherMap
-* Secure server-side API key handling (`server.js`)
-* City-based weather search
-* Loading indicators and error handling
-* Mobile-friendly design
-* Clean and accessible user experience
+* Live city search with geocoding
+* Current weather, hourly outlook, and 5-day forecast
+* Location-based weather on first load
+* Dark dashboard UI with a compact navigation rail
 
----
+[Live Demo](#) • [Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack)
 
-## 📋 Prerequisites
-
-Before running this project, make sure you have:
-
-* Node.js (v16 or higher)
-* npm (comes with Node.js)
-* OpenWeatherMap API Key: https://openweathermap.org/api
+</div>
 
 ---
 
-## ⚙️ Installation
+## 📖 About
 
-Clone the repository and install dependencies:
+**Atlas Weather** is a modern weather dashboard built as a fast, single-page front end. It uses OpenWeather geocoding and forecast endpoints to show current conditions, short-term hourly data, and a five-day outlook for any city you search.
 
-```powershell
-git clone https://github.com/YOUR_USERNAME/SyntecxHub-Weather.git
-cd SyntecxHub-Weather
-npm install
-```
+The interface is designed to feel like a focused weather control panel rather than a basic utility page. A left navigation rail, stacked content sections, and atmospheric styling make it easy to scan the weather at a glance while keeping the experience clean on desktop and mobile.
 
 ---
 
-## ▶️ Run the Application (Recommended)
+## ✨ Features
 
-### Windows PowerShell
-
-```powershell
-$env:OPENWEATHER_API_KEY="YOUR_API_KEY"
-npm start
-```
-
-### macOS / Linux
-
-```bash
-export OPENWEATHER_API_KEY="YOUR_API_KEY"
-npm start
-```
-
-After starting the server, open:
-
-```text
-http://localhost:3000
-```
+- ✅ Search any city and fetch live weather instantly
+- ✅ Auto-detects your location on load when permission is granted
+- ✅ Displays temperature, humidity, wind, sunrise, sunset, and local time
+- ✅ Shows an hourly forecast for the next 24 hours
+- ✅ Renders a five-day outlook with daily highs and lows
+- ✅ Uses a responsive dark UI with a polished sidebar rail
+- ✅ Includes dynamic state handling for loading and errors
 
 ---
 
-## ⚡ Quick Local-Only Setup (Not Recommended)
+## 🛠️ Tech Stack
 
-If you don't want to run the Express server, you can temporarily place your OpenWeatherMap API key directly inside `Myapp.js`.
+| Category | Tools |
+| --- | --- |
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **UI Assets** | Google Fonts, Font Awesome |
+| **Weather Data** | OpenWeather API |
+| **Runtime** | Static browser-based app |
 
-⚠️ This is only suitable for testing and should never be used in production.
+### Badges
 
----
-
-## 🔑 Verify Your API Key (Optional)
-
-### PowerShell
-
-```powershell
-Invoke-RestMethod "https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&units=metric"
-```
-
-If valid, weather data for London will be returned.
+![Static Badge](https://img.shields.io/badge/Frontend-HTML5%20%2B%20CSS3%20%2B%20JavaScript-0A0A0A?style=flat-square)
+![Static Badge](https://img.shields.io/badge/API-OpenWeather-0A0A0A?style=flat-square)
+![Static Badge](https://img.shields.io/badge/UI-Font%20Awesome%20%2B%20Google%20Fonts-0A0A0A?style=flat-square)
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-SyntecxHub-Weather/
-│
-├── index.html        # Main HTML page
-├── Myapp.js          # Client-side weather logic
-├── style.css         # Application styling
-├── server.js         # Express proxy server
-├── package.json      # Project dependencies
-└── README.md         # Documentation
+Syntecxhub-weather-app/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 ```
 
 ---
 
-## 📂 Files of Interest
+## 🚀 Quick Start
 
-| File         | Description                             |
-| ------------ | --------------------------------------- |
-| `index.html` | Client entry point                      |
-| `Myapp.js`   | Handles weather requests and UI updates |
-| `server.js`  | Secure API proxy using Express          |
-| `style.css`  | Application styling                     |
-
----
-
-## 🛠️ Development Notes
-
-* Never commit API keys to GitHub.
-* Use environment variables for secrets.
-* Run `npm install` after cloning.
-* Restart the server after modifying `server.js`.
-* Use browser developer tools for debugging client-side code.
-
----
-
-## 🌐 Deployment
-
-You can deploy this project on:
-
-* Render
-* Railway
-* Heroku
-* Vercel (Server Functions)
-* Any Node.js hosting platform
-
-### Deployment Checklist
-
-* Set `OPENWEATHER_API_KEY` as an environment variable.
-* Add `node_modules` to `.gitignore`.
-* Never push API keys to GitHub.
-* Test API routes before deployment.
-
----
-
-## 🔒 Security
-
-If your API key is accidentally exposed:
-
-1. Visit: https://home.openweathermap.org/api_keys
-2. Revoke the compromised key.
-3. Generate a new API key.
-4. Update your environment variables.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a new branch
+### 1) Clone the repository
 
 ```bash
-git checkout -b feature-name
+git clone https://github.com/sandipta26/Syntecxhub-weather-app.git
+cd syntecxhub-weather-app
 ```
 
-3. Commit your changes
+### 2) Start a local server
 
 ```bash
-git commit -m "Add new feature"
+python -m http.server 5500
 ```
 
-4. Push to your branch
+### 3) Open the app
 
-```bash
-git push origin feature-name
-```
+Go to `http://localhost:5500` in your browser.
 
-5. Open a Pull Request
-
-Please keep commits focused and well documented.
+If you prefer VS Code, you can also use **Live Server** to open `index.html`.
 
 ---
 
-## 📜 License
+## ⚙️ Configuration
 
-This project is licensed under the MIT License.
+This project is currently a static front end and does not require environment variables.
 
-Feel free to use, modify, and distribute this project.
- 
+### Optional setup notes
+
+| Setting | Details |
+| --- | --- |
+| **OpenWeather API key** | Stored in `script.js` as `OPEN_WEATHER_KEY` |
+| **Location access** | Optional, used to show local weather on first load |
+| **Fonts / icons** | Loaded from Google Fonts and Font Awesome CDNs |
+
+If you want to secure the API key later, move the OpenWeather calls behind a small backend proxy.
+
+---
+
+## 📚 Usage
+
+1. Type a city name in the search bar and press **Search**.
+2. Use the **Location** rail button to refresh your current weather.
+3. Review the hero section for current conditions and local time.
+4. Scroll through hourly forecasts and the five-day outlook below.
+
+The sidebar is interactive and helps jump between the main weather sections quickly.
+
+---
+
+## 🔌 API Endpoints
+
+Atlas Weather uses OpenWeather endpoints directly from the browser.
+
+| Endpoint | Purpose |
+| --- | --- |
+| `https://api.openweathermap.org/geo/1.0/direct` | Converts a city name into coordinates |
+| `https://api.openweathermap.org/data/2.5/weather` | Returns current weather conditions |
+| `https://api.openweathermap.org/data/2.5/forecast` | Returns hourly and 5-day forecast data |
+
+### Example flow
+
+```javascript
+// 1. Search a city
+// 2. Resolve coordinates through geocoding
+// 3. Fetch current weather and forecast data
+// 4. Render the dashboard panels
+```
+
+---
+
+## 📊 Project Statistics
+
+| Metric | Value |
+| --- | --- |
+| Core pages | 1 |
+| Main data source | OpenWeather |
+| Layout mode | Responsive dashboard |
+| Navigation sections | 4 |
+| Frameworks used | 0 |
+
+---
+
+## 🐛 Troubleshooting
+
+- If weather data does not load, confirm the OpenWeather API key in `script.js` is valid.
+- If location weather does not appear, allow browser location access and refresh the page.
+- If icons or fonts look broken, check that your browser can reach the external CDN assets.
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] Add a secure backend proxy for the weather API key
+- [ ] Add favorite cities and recent searches
+- [ ] Add Celsius/Fahrenheit unit switching
+- [ ] Add weather-based animations in the hero panel
+- [ ] Add offline-friendly caching for recent forecasts
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the included `LICENSE` file for the full text.
+
+---
+
+## 👨‍💻 Author
+
+**sandipta26**
+
+- GitHub: [@sandipta26](https://github.com/sandipta26)
+- Project: [Atlas Weather](https://github.com/sandipta26/Syntecxhub-weather-app)
+- Live Demo: [Atlas Weather](https://sandipta26.github.io/Syntecxhub-weather-app/)
+
+**Contributor**
+
+- **LegendarySumit** guided the project and supported the implementation.
+- **sandipta26** successfully completed and delivered the project.
+
+---
+
+<div align="center">
+
+**🌤️ Weather made fast, clear, and focused.**
+
+*Live data, polished visuals, and quick navigation in one dashboard.*
+
+---
+
+**⭐ Star this repo if you find it helpful!**
+
+</div>

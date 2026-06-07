@@ -3,31 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SyntecxHub Weather</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0b1220">
+  <title>Atlas Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <h1>SyntecxHub Weather</h1>
-    <p class="tagline">Fast, simple weather for any city</p>
-  </header>
+  <div class="backdrop">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="grid-noise"></span>
+  </div>
 
-  <main class="app" role="main">
-    <form id="searchForm" class="search-box" aria-label="Search for a city">
-      <input id="cityInput" name="city" type="search" placeholder="Enter city name" required aria-label="City name">
-      <button id="searchBtn" type="submit">Search</button>
-    </form>
+  <main class="app-shell" role="main">
+    <aside class="rail" aria-label="Weather navigation">
+      <div class="brand-mark">A</div>
+      <nav class="rail-nav" aria-label="Sections">
+        <button class="rail-item active" type="button" data-view="heroPanel" aria-label="Weather overview">
+          <i class="fa-solid fa-cloud-sun" aria-hidden="true"></i>
+          <small>Weather</small>
+        </button>
+        <button class="rail-item" type="button" data-action="search" aria-label="Cities">
+          <i class="fa-solid fa-city" aria-hidden="true"></i>
+          <small>Cities</small>
+        </button>
+        <button class="rail-item" type="button" data-view="forecastPanel" aria-label="Forecast outlook">
+          <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+          <small>Forecast</small>
+        </button>
+        <button class="rail-item" type="button" data-action="location" aria-label="Use current location">
+          <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+          <small>Location</small>
+        </button>
+      </nav>
+    </aside>
 
-    <div id="weatherBox" class="weather-box" aria-live="polite">
-      <!-- Weather info will appear here -->
-    </div>
+    <section class="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Live global weather</p>
+          <h1>Atlas Weather</h1>
+          <p class="subtitle">Search any city and get current conditions, forecast, and air stats in a single view.</p>
+        </div>
+
+        <form id="searchForm" class="search-box" aria-label="Search for a city">
+          <label class="sr-only" for="cityInput">Search for a city</label>
+          <input id="cityInput" name="city" type="search" placeholder="Search for cities" autocomplete="off" required aria-label="City name">
+          <button id="searchBtn" type="submit">Search</button>
+        </form>
+      </header>
+
+      <div id="statusBar" class="status-bar" aria-live="polite">
+        Type a city and hit search, or use your location when prompted.
+      </div>
+
+      <div class="content-grid">
+        <section class="hero-card panel" id="heroPanel" aria-live="polite">
+          <div class="hero-copy">
+            <p class="hero-kicker" id="currentLabel">Waiting for a city search</p>
+            <h2 id="currentCity">Search a city to begin</h2>
+            <p class="hero-meta" id="currentDescription">Live weather data will appear here.</p>
+
+            <div class="hero-temp-wrap">
+              <div>
+                <span class="hero-temp" id="currentTemp">--°</span>
+                <span class="hero-units">Celsius</span>
+              </div>
+              <div class="hero-trace">
+                <span id="chanceOfRain">Chance of rain --%</span>
+                <span id="lastUpdated">Awaiting data</span>
+              </div>
+            </div>
+
+            <div class="hero-points">
+              <span class="point" id="sunriseTime">Sunrise --</span>
+              <span class="point" id="sunsetTime">Sunset --</span>
+              <span class="point" id="localTime">Local time --</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="weather-glow" id="weatherGlow"></div>
+            <img id="currentIcon" class="main-icon" alt="Weather icon" hidden>
+            <div id="emptyIcon" class="main-icon-empty">☼</div>
+          </div>
+        </section>
+
+        <aside class="forecast-panel panel" id="forecastPanel" aria-label="Five day forecast">
+          <div class="panel-title-row">
+            <div>
+              <p class="panel-label">5-day outlook</p>
+              <h3>Forecast</h3>
+            </div>
+            <span class="panel-chip" id="forecastRegion">No city loaded</span>
+          </div>
+          <div id="dailyForecast" class="forecast-list">
+            <div class="forecast-empty">Forecast cards will appear after a search.</div>
+          </div>
+        </aside>
+
+        <section class="panel hourly-panel" id="hourlyPanel" aria-label="Hourly forecast">
+          <div class="panel-title-row">
+            <div>
+              <p class="panel-label">Today</p>
+              <h3>Hourly Forecast</h3>
+            </div>
+            <span class="panel-chip">Next 24 hours</span>
+          </div>
+          <div id="hourlyForecast" class="hourly-track">
+            <div class="forecast-empty">Hourly cards will populate here.</div>
+          </div>
+        </section>
+
+        <section class="panel stats-panel" id="statsPanel" aria-label="Weather metrics">
+          <div class="panel-title-row">
+            <div>
+              <p class="panel-label">Current conditions</p>
+              <h3>Air Stats</h3>
+            </div>
+            <span class="panel-chip">Live from OpenWeather</span>
+          </div>
+          <div id="statsGrid" class="stats-grid">
+            <div class="forecast-empty">Search a city to reveal live metrics.</div>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <small>Powered by OpenWeatherMap — add your API key in <code>Myapp.js</code></small>
-  </footer>
-
-  <script src="Myapp.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
