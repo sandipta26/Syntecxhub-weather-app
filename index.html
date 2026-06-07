@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SyntecxHub Weather</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>SyntecxHub Weather</h1>
+    <p class="tagline">Fast, simple weather for any city</p>
+  </header>
+
+  <main class="app" role="main">
+    <form id="searchForm" class="search-box" aria-label="Search for a city">
+      <input id="cityInput" name="city" type="search" placeholder="Enter city name" required aria-label="City name">
+      <button id="searchBtn" type="submit">Search</button>
+    </form>
+
+    <div id="weatherBox" class="weather-box" aria-live="polite">
+      <!-- Weather info will appear here -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <small>Powered by OpenWeatherMap — add your API key in <code>Myapp.js</code></small>
+  </footer>
+
+  <script src="Myapp.js" defer></script>
+</body>
+</html>
