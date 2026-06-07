@@ -177,21 +177,6 @@ Please keep commits focused and well documented.
 
 ---
 
-## 📸 Demo
-
-Live Demo: https://YOUR_DEMO_LINK.com
-
----
-
-## 👨‍💻 Author
-
-**Sandipta Mishra**
-
-* GitHub: https://github.com/YOUR_USERNAME
-* LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN_USERNAME
-
----
-
 ## 📜 License
 
 This project is licensed under the MIT License.
